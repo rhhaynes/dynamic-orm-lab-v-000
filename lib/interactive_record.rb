@@ -19,8 +19,8 @@ class InteractiveRecord
   end
   
   def self.find_by(attributes)
-    sql = "SELECT * FROM #{table_name} WHERE ? = ?"
-    DB[:conn].execute(sql,attributes.keys[0].to_s,attributes.values[0]).flatten
+    sql = "SELECT * FROM #{table_name} WHERE #{attributes.keys[0]} = ?"
+    DB[:conn].execute(sql,attributes.values[0]).flatten
   end
   
   def self.find_by_name(name)
